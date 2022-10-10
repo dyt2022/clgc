@@ -400,6 +400,7 @@ const useGame = () => {
       block.type = newBlockTypes[pos++];
     });
     levelBlocksVal.value = [...levelBlocksVal.value];
+    randomBlocksVal.value = [...randomBlocksVal.value];
   };
 
   /**

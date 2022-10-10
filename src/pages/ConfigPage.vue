@@ -106,7 +106,10 @@ const resetConfig = () => {
  * 回上一页
  */
 const doBack = () => {
-  router.back();
+  if (window.history.length > 1)
+    router.back();
+  else
+    router.push("/");
 };
 </script>
 <style></style>
