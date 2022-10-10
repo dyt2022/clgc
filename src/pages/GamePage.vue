@@ -11,9 +11,16 @@
         <img class="imgwin" src="../assets/chengcheng.jpg" />
       </div>
     </a-row>
+    <!-- 输了再来 -->
+    <a-row align="center">
+      <div v-if="gameStatus === 2" style="text-align: center">
+        <h2>可惜，你输了，再玩一次吧</h2>
+        <img class="imglose" src="../assets/lose.jpg" />
+      </div>
+    </a-row>
     <!-- 分层选块 -->
     <a-row align="center">
-      <div v-show="gameStatus > 0" class="level-board">
+      <div v-show="gameStatus < 2" class="level-board">
         <div v-for="(block, idx) in levelBlocksVal" :key="idx">
           <div
             v-if="block.status === 0"
@@ -36,7 +43,7 @@
     </a-row>
     <!-- 随机选块 -->
     <a-row align="center">
-      <div class="random-board">
+      <div v-show="gameStatus < 2" class="random-board">
       <div
         v-for="(randomBlock, index) in randomBlocksVal"
         :key="index"
@@ -177,6 +184,10 @@ onMounted(() => {
   height: 43px;
 }
 .imgwin {
+  width: 100%;
+}
+
+.imglose {
   width: 100%;
 }
 
