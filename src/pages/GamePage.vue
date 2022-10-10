@@ -8,8 +8,8 @@
     <a-row align="center">
       <div v-if="gameStatus === 3" style="text-align: center">
         <h2>恭喜，你赢啦！🎉</h2>
-        <img alt="程序员鱼皮" src="../assets/kunkun.png" />
-        <my-ad style="margin-top: 16px" />
+        <img alt="程序员鱼皮" src="../assets/chengcheng.jpg" />
+        <!--<my-ad style="margin-top: 16px" /> -->
       </div>
     </a-row>
     <!-- 分层选块 -->
@@ -30,7 +30,7 @@
             }"
             @click="() => doClickBlock(block)"
           >
-            {{ block.type }}
+              <img class="imgblock" :src="block.type">
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
           class="block"
           @click="() => doClickBlock(randomBlock[0], index)"
         >
-          {{ randomBlock[0].type }}
+          <img class="imgblock" :src="randomBlock[0].type">
         </div>
         <!-- 隐藏 -->
         <div
@@ -57,7 +57,7 @@
           class="block disabled"
         >
           <span v-if="canSeeRandom">
-            {{ randomBlock[num].type }}
+            <img class="imgblock" :src="randomBlock[num].type">
           </span>
         </div>
       </div>
@@ -65,7 +65,7 @@
     <!-- 槽位 -->
     <a-row v-if="slotAreaVal.length > 0" align="center" class="slot-board">
       <div v-for="(slotBlock, index) in slotAreaVal" :key="index" class="block">
-        {{ slotBlock?.type }}
+         <img v-if="slotBlock?.type != null" class="imgblock" :src="slotBlock?.type">
       </div>
     </a-row>
     <!-- 技能 -->
@@ -151,10 +151,8 @@ onMounted(() => {
 }
 
 .block {
-  font-size: 28px;
   width: 42px;
   height: 42px;
-  line-height: 42px;
   border: 1px solid #eee;
   background: white;
   text-align: center;
@@ -162,8 +160,14 @@ onMounted(() => {
   display: inline-block;
 }
 
+.imgblock {
+  width: 42px;
+  height: 42px;
+}
+
 .disabled {
   background: grey;
   cursor: not-allowed;
+  filter: grayscale(100%);
 }
 </style>
