@@ -1674,6 +1674,11 @@
   dependencies:
     "lru-cache" "^6.0.0"
 
+"sh@^0.0.3":
+  "integrity" "sha512-y/YjMDTNbwOMIAbq93eE/fbIn+6TlaiYtE8/J+wLQOSHa2bHFdpaAQ0LuXzWjYUO96F++sNHub10ykCti3YMYg=="
+  "resolved" "https://registry.npmjs.org/sh/-/sh-0.0.3.tgz"
+  "version" "0.0.3"
+
 "shallow-equal@^1.0.0":
   "integrity" "sha512-S4vJDjHHMBaiZuT9NPb616CSmLf618jawtv3sufLl6ivK8WocjAo58cXwbRV1cgqxH0Qbv+iUt6m05eqEa2IRA=="
   "resolved" "https://registry.npmmirror.com/shallow-equal/-/shallow-equal-1.2.1.tgz"

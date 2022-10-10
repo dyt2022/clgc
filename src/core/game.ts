@@ -38,8 +38,8 @@ const useGame = () => {
   const boxHeightNum = 24;
 
   // 每个格子的宽高
-  const widthUnit = 14;
-  const heightUnit = 14;
+  const widthUnit = 15;
+  const heightUnit = 15;
 
   // 保存整个 "棋盘" 的每个格子状态（下标为格子起始点横纵坐标）
   let chessBoard: ChessBoardUnitType[][] = [];
@@ -85,6 +85,10 @@ const useGame = () => {
     const levelBoardDom: any = document.getElementsByClassName("level-board");
     levelBoardDom[0].style.width = widthUnit * boxWidthNum + "px";
     levelBoardDom[0].style.height = heightUnit * boxHeightNum + "px";
+
+    const randomBoardDom: any = document.getElementsByClassName("random-board");
+    randomBoardDom[0].style.width = widthUnit * boxWidthNum + "px";
+    randomBoardDom[0].style.height = heightUnit * 5 + "px";
 
     // 1. 规划块数
     // 块数单位（总块数必须是该值的倍数）

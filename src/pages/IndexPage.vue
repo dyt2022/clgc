@@ -44,24 +44,6 @@
     >
       羊了个羊模式
     </a-button>
-    <a-button block style="margin-bottom: 16px" @click="() => toGamePage()">
-      自定义 🔥
-    </a-button>
-    <!--<my-ad />
-    <div class="footer">
-      鱼了个鱼 ©2022 by
-      <a href="https://github.com/liyupi" target="_blank" style="color: #fff">
-        程序员鱼皮
-      </a>
-      |
-      <a
-        href="https://github.com/liyupi/yulegeyu"
-        target="_blank"
-        style="color: #fff"
-      >
-        代码开源
-      </a>
-    </div> -->
   </div>
 </template>
 
@@ -76,7 +58,6 @@ import {
   yangGameConfig,
 } from "../core/gameConfig";
 import { useGlobalStore } from "../core/globalStore";
-import MyAd from "../components/MyAd.vue";
 
 const router = useRouter();
 

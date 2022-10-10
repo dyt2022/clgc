@@ -9,5 +9,12 @@ export default defineConfig({
       include: [/\.vue$/],
     }),
   ],
-  base: `/`,
+  base: '/clgc/',
+  build: {
+    rollupOptions: {
+        output: {
+            assetFileNames: "assets/[name][extname]",
+        },
+    },
+  },
 });

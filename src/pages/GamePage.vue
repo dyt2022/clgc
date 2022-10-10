@@ -8,8 +8,7 @@
     <a-row align="center">
       <div v-if="gameStatus === 3" style="text-align: center">
         <h2>恭喜，你赢啦！🎉</h2>
-        <img alt="程序员鱼皮" src="../assets/chengcheng.jpg" />
-        <!--<my-ad style="margin-top: 16px" /> -->
+        <img class="imgwin" src="../assets/chengcheng.jpg" />
       </div>
     </a-row>
     <!-- 分层选块 -->
@@ -36,7 +35,8 @@
       </div>
     </a-row>
     <!-- 随机选块 -->
-    <a-row align="space-between" class="random-board">
+    <a-row align="center">
+      <div class="random-board">
       <div
         v-for="(randomBlock, index) in randomBlocksVal"
         :key="index"
@@ -45,7 +45,11 @@
         <div
           v-if="randomBlock.length > 0"
           :data-id="randomBlock[0].id"
-          class="block"
+          :style="{
+              zIndex: 100,
+              left: 200 * index + 'px'
+            }"
+          class="block level-block"
           @click="() => doClickBlock(randomBlock[0], index)"
         >
           <img class="imgblock" :src="randomBlock[0].type">
@@ -54,12 +58,17 @@
         <div
           v-for="num in Math.max(randomBlock.length - 1, 0)"
           :key="num"
-          class="block disabled"
+          :style="{
+              zIndex: 100 - num,
+              left: 200 * index + 10 * num + 'px'
+            }"
+          class="block level-block disabled"
         >
           <span v-if="canSeeRandom">
             <img class="imgblock" :src="randomBlock[num].type">
           </span>
         </div>
+      </div>
       </div>
     </a-row>
     <!-- 槽位 -->
@@ -86,7 +95,6 @@
 import useGame from "../core/game";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import MyAd from "../components/MyAd.vue";
 
 const router = useRouter();
 
@@ -134,6 +142,7 @@ onMounted(() => {
 
 .random-board {
   margin-top: 8px;
+  position: relative;
 }
 
 .random-area {
@@ -142,7 +151,7 @@ onMounted(() => {
 
 .slot-board {
   border: 10px solid saddlebrown;
-  margin: 16px auto;
+  margin: 5px auto;
   width: fit-content;
 }
 
@@ -151,8 +160,8 @@ onMounted(() => {
 }
 
 .block {
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 45px;
   border: 1px solid #eee;
   background: white;
   text-align: center;
@@ -161,13 +170,34 @@ onMounted(() => {
 }
 
 .imgblock {
-  width: 42px;
-  height: 42px;
+  width: 43px;
+  height: 43px;
+}
+.imgwin {
+  width: 100%;
 }
 
 .disabled {
   background: grey;
   cursor: not-allowed;
-  filter: grayscale(100%);
+  filter: grayscale(100%) brightness(40%);
 }
 </style>
+
+<img src="../assets/1.jpg" hidden>
+<img src="../assets/2.jpg" hidden>
+<img src="../assets/3.jpg" hidden>
+<img src="../assets/4.jpg" hidden>
+<img src="../assets/5.jpg" hidden>
+<img src="../assets/6.jpg" hidden>
+<img src="../assets/7.jpg" hidden>
+<img src="../assets/8.jpg" hidden>
+<img src="../assets/9.jpg" hidden>
+<img src="../assets/10.jpg" hidden>
+<img src="../assets/11.jpg" hidden>
+<img src="../assets/12.jpg" hidden>
+<img src="../assets/13.jpg" hidden>
+<img src="../assets/14.jpg" hidden>
+<img src="../assets/15.jpg" hidden>
+<img src="../assets/16.jpg" hidden>
+<img src="../assets/17.jpg" hidden>
